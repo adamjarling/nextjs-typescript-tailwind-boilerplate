@@ -11,22 +11,24 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+const siteTitle = "My Website";
+
 export const metadata: Metadata = {
   title: {
-    default: "Casey Murtaugh",
-    template: "%s | Casey Murtaugh",
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
   },
-  description: "Artist and Educator",
+  description: "Default description goes here",
   openGraph: {
-    title: "Casey Murtaugh - Artist and Educator",
+    title: siteTitle,
     description: "Showcasing the ..",
-    url: "https://caseymurtaugh.art",
-    siteName: "Casey Murtaugh Art",
+    url: "https://adamarling.com",
+    siteName: siteTitle,
     images: [
       {
         url: `${
           process.env.NEXT_PUBLIC_BASE_URL
-        }/api/og?cover=${encodeURIComponent("/images/IMG_9823.jpg")}`,
+        }/api/og?cover=${encodeURIComponent("/images/IMG_0221.jpg")}`,
       },
     ],
     locale: "en-US",

@@ -45,7 +45,7 @@ const Nav: React.FC<NavProps> = ({ links }) => {
     >
       <div className={`flex items-center`}>
         <a href="/" className={`text-lg font-semibold text-gray-800`}>
-          Casey Murtaugh
+          My Website
         </a>
       </div>
       <div className={`hidden md:flex`}>
