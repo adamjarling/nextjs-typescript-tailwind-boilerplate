@@ -1,20 +1,20 @@
 "use client";
 
+import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/styles.css";
 
 import Image from "next/image";
+import { type IGetPlaiceholderReturn } from "plaiceholder";
 import React, { useState } from "react";
 import Masonry from "react-masonry-css";
 import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/plugins/captions";
 
 import styles from "@/app/page.module.css";
 
-export type MasonryImage = {
-  filename: string;
-  height: number;
-  orientation: number;
-  width: number;
-  type: string;
+export type MasonryImage = IGetPlaiceholderReturn["img"] & {
+  placeholder: any;
+  blurDataURL: string;
 };
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
   images: MasonryImage[];
 }
 
-const MasonryGallery: React.FC<Props> = ({ dir, images }) => {
+const MasonryGallery: React.FC<Props> = ({ dir, images = [] }) => {
   const [photoIndex, setPhotoIndex] = useState(-1);
 
   const handleImageClick = (index: number) => {
@@ -43,15 +43,12 @@ const MasonryGallery: React.FC<Props> = ({ dir, images }) => {
         columnClassName={styles["my-masonry-grid_column"]}
       >
         {images.map((image, index) => (
-          <div key={image.filename}>
+          <div key={image.src}>
             <Image
+              {...image}
               onClick={() => handleImageClick(index)}
-              width={image.width}
-              height={image.height}
               alt={"alt"}
-              src={`/${dir}/${image.filename}`}
-              placeholder="blur"
-              blurDataURL={`/${dir}/${image.filename}`}
+              className="cursor-pointer"
             />
           </div>
         ))}
@@ -61,16 +58,17 @@ const MasonryGallery: React.FC<Props> = ({ dir, images }) => {
         index={photoIndex}
         close={() => setPhotoIndex(-1)}
         slides={images.map((i) => ({
-          src: `/${dir}/${i.filename}`,
-          key: i.filename,
+          src: i.src,
+          key: i.src,
           width: i.width,
           height: i.height,
-          //   srcSet: images?.map((image) => ({
-          //     src: `/${dir}/${i.filename}`,
-          //     width: image.width,
-          //     height: image.height,
-          //   })),
+          title: "Some title",
+          description: "Some description",
         }))}
+        plugins={[Captions]}
+        captions={{
+          descriptionTextAlign: "center",
+        }}
       />
     </>
   );
