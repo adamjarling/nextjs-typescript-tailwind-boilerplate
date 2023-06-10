@@ -1,15 +1,22 @@
 "use client";
 
 import HeroImage from "@/components/Hero";
+import ParallaxHero from "@/components/ParallaxHero";
 
 export default function Home() {
   return (
     <>
       <main>
-        <HeroImage
+        {/* <HeroImage
           headline="Headline goes here"
           imageUrl="/images/IMG_0221.jpg"
           altText="Hero"
+        /> */}
+
+        <ParallaxHero
+          imageUrl="/images/IMG_0221.jpg"
+          headline="Yo Mama"
+          altText="Yo Mama"
         />
 
         <section className="section">
