@@ -3,6 +3,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
+import { SITE_CONFIG } from "site-config";
 
 import Nav from "@/components/Nav";
 
@@ -11,19 +12,17 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-const siteTitle = "My Website";
-
 export const metadata: Metadata = {
   title: {
-    default: siteTitle,
-    template: `%s | ${siteTitle}`,
+    default: SITE_CONFIG.title,
+    template: `%s | ${SITE_CONFIG.title}`,
   },
   description: "Default description goes here",
   openGraph: {
-    title: siteTitle,
+    title: SITE_CONFIG.title,
     description: "Showcasing the ..",
     url: "https://adamarling.com",
-    siteName: siteTitle,
+    siteName: SITE_CONFIG.title,
     images: [
       {
         url: `${

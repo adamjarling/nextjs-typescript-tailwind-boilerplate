@@ -14,23 +14,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "18.14.1",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "@vercel/og": "^0.2.0",
-    "eslint": "8.34.0",
-    "eslint-config-next": "13.2.1",
+    "@types/node": "^20.2.6",
+    "@types/react": "^18.2.10",
+    "@types/react-dom": "^18.2.4",
+    "@vercel/og": "^0.5.7",
+    "eslint": "^8.42.0",
+    "eslint-config-next": "^13.4.4",
     "framer-motion": "^10.0.0",
     "image-size": "^1.0.2",
-    "next": "13.2.1",
+    "next": "^13.4.4",
     "plaiceholder": "^2.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-masonry-css": "^1.0.16",
-    "sharp": "^0.31.3",
-    "typescript": "4.9.5",
-    "yet-another-react-lightbox": "^2.4.3"
+    "sharp": "^0.32.1",
+    "typescript": "^5.1.3",
+    "yet-another-react-lightbox": "^3.10.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
