@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import React, { useState } from "react";
+
+import { motion } from "framer-motion";
 
 interface NavProps {
   links: {
@@ -41,7 +42,7 @@ const Nav: React.FC<NavProps> = ({ links }) => {
 
   return (
     <nav
-      className={`flex justify-between items-center py-4 px-6 bg-white shadow-sm`}
+      className={`flex justify-between items-center py-4 px-6 bg-white shadow-sm uppercase`}
     >
       <div className={`flex items-center`}>
         <a href="/" className={`text-lg font-semibold text-gray-800`}>

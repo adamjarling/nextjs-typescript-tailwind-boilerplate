@@ -1,14 +1,13 @@
 import "./globals.css";
 
+import { Libre_Franklin } from "next/font/google";
 import { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import Nav from "@/components/Nav";
 import Script from "next/script";
 
-import Nav from "@/components/Nav";
-
-const montserrat = Montserrat({
+const libreFranklin = Libre_Franklin({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-libreFranklin",
 });
 
 const siteTitle = "My Website";
@@ -55,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={montserrat.className}>
+    <html lang="en" className={libreFranklin.className}>
       <body>
         <Nav links={links} />
         <>
