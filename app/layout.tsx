@@ -57,20 +57,18 @@ export default function RootLayout({
     <html lang="en" className={libreFranklin.className}>
       <body>
         <Nav links={links} />
-        <>
-          {children}
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA}`}
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
+        <>{children}</>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA}`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${process.env.NEXT_PUBLIC_GA}');
             `}
-          </Script>
-        </>
+        </Script>
       </body>
     </html>
   );
