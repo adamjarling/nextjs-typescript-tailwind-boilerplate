@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/Button";
 import HeroImage from "@/components/Hero";
 import ParallaxHero from "@/components/ParallaxHero";
 
@@ -15,8 +16,10 @@ export default function Home() {
 
         <ParallaxHero
           imageUrl="/images/IMG_0221.jpg"
-          headline="Yo Mama"
+          headline="Parallax Banner goes here"
           altText="Yo Mama"
+          subHeadline="Some random subheadline content can go here to describe something"
+          Button={<Button cb={() => console.log("yo")}>Get Started</Button>}
         />
 
         <section className="section">
