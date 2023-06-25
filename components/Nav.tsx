@@ -83,7 +83,7 @@ const Nav: React.FC<NavProps> = ({ links }) => {
               onClick={toggleMobileNav}
             >
               {isMobileNavOpen ? (
-                <FiX size={28} color="white" />
+                <FiX size={40} color="white" />
               ) : (
                 <IoIosMenu size={40} />
               )}
