@@ -7,8 +7,8 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ children, className }) => {
   return (
-    <section className={`container text-center py-8 md:py-10 ${className}`}>
-      {children}
+    <section className={`text-center py-8 md:py-10 ${className}`}>
+      <div className="container">{children}</div>
     </section>
   );
 };

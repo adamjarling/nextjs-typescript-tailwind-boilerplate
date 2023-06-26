@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 
-//import Button from "./Button";
 import Image from "next/image";
 
 type ParallaxHeroProps = {
@@ -24,7 +23,7 @@ const ParallaxHero: React.FC<ParallaxHeroProps> = ({
   const y = useTransform(scrollYProgress, [0, 1], ["0", "10%"]);
 
   return (
-    <div className="relative w-full h-[75vh] overflow-hidden">
+    <div className="relative w-full overflow-hidden h-[80vh]">
       <MotionImage
         style={{ y }}
         src={imageUrl}

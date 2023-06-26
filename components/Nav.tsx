@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 
 import { IoIosMenu } from "react-icons/io";
+import SocialMediaIcons from "./SocialMediaIcons";
 import { usePathname } from "next/navigation";
 
 interface NavProps {
@@ -21,7 +22,7 @@ const Nav: React.FC<NavProps> = ({ links }) => {
 
   const textVariants = {
     start: {
-      color: ["/"].includes(pathname || "") ? "white" : "black",
+      color: ["/", "/about"].includes(pathname || "") ? "white" : "black",
     },
     end: {
       color: "white",
@@ -59,7 +60,7 @@ const Nav: React.FC<NavProps> = ({ links }) => {
         <motion.div
           className="absolute inset-0 bg-black"
           initial={{ opacity: 0 }}
-          animate={{ opacity: opacity }}
+          animate={{ opacity: opacity - 0.1 }}
           transition={{
             duration: 0.5,
           }}
@@ -126,17 +127,20 @@ const Nav: React.FC<NavProps> = ({ links }) => {
               animate="open"
               variants={navVariants}
             >
-              <div className="mt-20">
+              <div className="container mt-20">
                 {links.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className={`block text-3xl py-2 px-4 text-white hover:text-gray-200`}
+                    className={`block text-3xl py-2 text-white hover:text-gray-200`}
                     onClick={toggleMobileNav}
                   >
                     {link.label}
                   </a>
                 ))}
+                <div className="mt-20">
+                  <SocialMediaIcons />
+                </div>
               </div>
             </motion.div>
           )}

@@ -2,6 +2,7 @@ import { FiFacebook, FiInstagram, FiYoutube } from "react-icons/fi";
 
 import Link from "next/link";
 import React from "react";
+import SocialMediaIcons from "./SocialMediaIcons";
 import { socialMedia } from "nttb-config";
 
 const socialIcons = [
@@ -27,13 +28,7 @@ const Footer = () => {
     <footer className="text-white bg-black">
       <div className="container flex flex-col items-center justify-center py-8 text-sm md:justify-between md:flex-row ">
         <div className="pb-3 md:pb-0">&copy; Website name</div>
-        <ul className="flex">
-          {socialIcons.map((si) => (
-            <li key={si.label} className="px-2 text-stone-400">
-              <Link href={si.url}>{si.Icon && <si.Icon size="24" />}</Link>
-            </li>
-          ))}
-        </ul>
+        <SocialMediaIcons />
       </div>
     </footer>
   );
