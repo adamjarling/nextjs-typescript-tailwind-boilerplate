@@ -4,13 +4,14 @@ import Banner from "@/components/banner/Banner";
 import BannerHeadline from "@/components/banner/Headline";
 import Button from "@/components/Button";
 import HeroImage from "@/components/Hero";
+import Main from "@/components/Main";
 import ParallaxHero from "@/components/ParallaxHero";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <>
-      <main>
+      <Main flushTop>
         <ParallaxHero
           imageUrl="/images/IMG_0221.jpg"
           headline="Parallax Banner goes here"
@@ -27,7 +28,7 @@ export default function Home() {
           <BannerHeadline>Another Banner Headline</BannerHeadline>
           <p>Some subhead content here</p>
         </Banner>
-      </main>
+      </Main>
     </>
   );
 }
