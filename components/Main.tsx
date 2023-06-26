@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Main: React.FC<Props> = ({ children, flushTop = false }) => {
-  return <main className={`${flushTop ? "mt-0" : "mt-20"}`}>{children}</main>;
+  return <main className={`${flushTop ? "mt-0" : "mt-16"}`}>{children}</main>;
 };
 
 export default Main;

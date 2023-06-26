@@ -2,6 +2,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import { getPlaiceholder, type IGetPlaiceholderReturn } from "plaiceholder";
 
+import Main from "@/components/Main";
+
 import MasonryGallery from "@/components/Masonry";
 const sizeOf = require("image-size");
 
@@ -25,12 +27,12 @@ const GalleryPage = async () => {
   }));
 
   return (
-    <>
+    <Main>
       <section className="max-w-3xl py-8 mx-auto text-center">
         Something goes here
       </section>
       {images && <MasonryGallery dir={folder} images={images} />}
-    </>
+    </Main>
   );
 };
 
