@@ -31,6 +31,10 @@ const nav = [
     href: "/masonry-gallery",
     label: "Masonry Gallery",
   },
+  {
+    href: "/shows",
+    label: "Shows",
+  },
 ];
 
 const socialMedia = {
