@@ -1,35 +1,34 @@
 "use client";
 
+import Banner from "@/components/banner/Banner";
+import BannerHeadline from "@/components/banner/Headline";
+import Button from "@/components/Button";
 import HeroImage from "@/components/Hero";
+import Main from "@/components/Main";
+import ParallaxHero from "@/components/ParallaxHero";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <>
-      <main>
-        <HeroImage
-          headline="Headline goes here"
+      <Main flushTop>
+        <ParallaxHero
           imageUrl="/images/IMG_0221.jpg"
-          altText="Hero"
+          headline="Parallax Banner goes here"
+          altText="Yo Mama"
+          subHeadline="Some random subheadline content can go here to describe something"
+          Button={<Button cb={() => console.log("yo")}>Get Started</Button>}
         />
+        <Banner className="">
+          <BannerHeadline>New Single Out Now</BannerHeadline>
+          <p>Some subhead content here</p>
+        </Banner>
 
-        <section className="section">
-          <h2 className="text-xl bold">Section 1</h2>
-        </section>
-
-        <div className="w-full h-36 bg-slate-400" />
-
-        <section className="section">
-          <h2 className="text-xl bold">Section 2</h2>
-        </section>
-
-        <div className="w-full h-36 bg-slate-400" />
-
-        <section className="section">
-          <h2 className="text-xl bold">Section 3</h2>
-        </section>
-
-        <div className="w-full h-36 bg-slate-400" />
-      </main>
+        <Banner className="text-white bg-black">
+          <BannerHeadline>Another Banner Headline</BannerHeadline>
+          <p>Some subhead content here</p>
+        </Banner>
+      </Main>
     </>
   );
 }

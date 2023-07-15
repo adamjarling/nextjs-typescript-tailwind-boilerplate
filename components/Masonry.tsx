@@ -3,14 +3,13 @@
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/styles.css";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { type } from "os";
 import React, { useState } from "react";
-import Masonry from "react-masonry-css";
-import Lightbox from "yet-another-react-lightbox";
-import Captions from "yet-another-react-lightbox/plugins/captions";
 
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import Masonry from "react-masonry-css";
+import { motion } from "framer-motion";
 import styles from "@/app/page.module.css";
 
 export type MasonryImage = {
@@ -52,8 +51,15 @@ const MasonryGallery: React.FC<Props> = ({ dir, images = [], manifest }) => {
   const breakpointColumnsObj = {
     default: 3,
     1100: 2,
-    //700: 1,
   };
+
+  const galleryImages = !manifest
+    ? images
+    : images.filter((i) =>
+        manifest.hasOwnProperty(
+          i.filename.slice(i.filename.lastIndexOf("/") + 1)
+        )
+      );
 
   return (
     <>
@@ -62,7 +68,7 @@ const MasonryGallery: React.FC<Props> = ({ dir, images = [], manifest }) => {
         className={styles["my-masonry-grid"]}
         columnClassName={styles["my-masonry-grid_column"]}
       >
-        {images.map((image, index) => (
+        {galleryImages.map((image, index) => (
           <motion.div
             key={image.filename}
             initial={{ opacity: 0 }}
@@ -84,7 +90,7 @@ const MasonryGallery: React.FC<Props> = ({ dir, images = [], manifest }) => {
         open={photoIndex >= 0}
         index={photoIndex}
         close={() => setPhotoIndex(-1)}
-        slides={images.map((i) => ({
+        slides={galleryImages.map((i) => ({
           src: i.filename,
           key: i.filename,
           width: i.width,

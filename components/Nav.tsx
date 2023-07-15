@@ -1,8 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
+
+import { IoIosMenu } from "react-icons/io";
+import SocialMediaIcons from "./SocialMediaIcons";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   links: {
@@ -13,81 +17,136 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({ links }) => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const pathname = usePathname();
+
+  const textVariants = {
+    start: {
+      color: ["/", "/about"].includes(pathname || "") ? "white" : "black",
+    },
+    end: {
+      color: "white",
+    },
+  };
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    scrollYProgress.on("change", (v) => {
+      setOpacity(Math.ceil(v));
+    });
+  }, [scrollYProgress]);
 
   const navVariants = {
     open: {
-      y: 0,
+      x: 0,
       opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 500,
-        damping: 30,
+        duration: 0.2,
       },
     },
     closed: {
-      y: -50,
+      x: "100%",
       opacity: 0,
-      transition: {
-        type: "spring",
-        stiffness: 500,
-        damping: 30,
-      },
     },
   };
 
   return (
-    <nav
-      className={`flex justify-between items-center py-4 px-6 bg-white shadow-sm`}
-    >
-      <div className={`flex items-center`}>
-        <a href="/" className={`text-lg font-semibold text-gray-800`}>
-          My Website
-        </a>
-      </div>
-      <div className={`hidden md:flex`}>
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className={`mx-4 text-gray-600 hover:text-gray-800`}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-      <div className={`md:hidden flex items-center`}>
-        <button
-          type="button"
-          className={`text-gray-500 hover:text-gray-600 focus:outline-none`}
-          onClick={toggleMobileNav}
-        >
-          {isMobileNavOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
-      </div>
-      {isMobileNavOpen && (
+    <div className="fixed top-0 z-20 w-full">
+      <div className="container">
         <motion.div
-          className={`md:hidden absolute top-16 left-0 right-0 bg-white z-10`}
-          initial="closed"
-          animate="open"
-          variants={navVariants}
+          className="absolute inset-0 bg-black"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: opacity - 0.1 }}
+          transition={{
+            duration: 0.5,
+          }}
+        ></motion.div>
+        <nav
+          className={`flex justify-between items-center py-3 lg:py-5 shadow-sm w-full`}
         >
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100`}
+          {/* Desktop nav */}
+          <div className={`flex items-center opacity-100 z-30`}>
+            <motion.a
+              variants={textVariants}
+              animate={opacity > 0 ? "end" : "start"}
+              transition={{
+                duration: 0.5,
+              }}
+              href="/"
+              className={`text-lg font-semibold uppercase ${
+                isMobileNavOpen && "hidden"
+              }`}
+            >
+              <span className="hidden lg:block">My Website</span>
+              <span className="lg:hidden">MW</span>
+            </motion.a>
+          </div>
+          <div className={`hidden lg:flex uppercase opacity-100 z-30`}>
+            {links.map((link) => (
+              <motion.a
+                variants={textVariants}
+                animate={opacity > 0 ? "end" : "start"}
+                transition={{
+                  duration: 0.5,
+                }}
+                key={link.label}
+                href={link.href}
+                className={`mx-4 text-sm`}
+              >
+                {link.label}
+              </motion.a>
+            ))}
+          </div>
+          {/* Mobile menu button */}
+          <div className={`lg:hidden flex items-center z-20`}>
+            <motion.button
+              variants={textVariants}
+              animate={opacity > 0 ? "end" : "start"}
+              transition={{
+                duration: 0.5,
+              }}
+              type="button"
+              className={`focus:outline-none`}
               onClick={toggleMobileNav}
             >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
-      )}
-    </nav>
+              {isMobileNavOpen ? (
+                <FiX size={40} color="white" />
+              ) : (
+                <IoIosMenu size={40} />
+              )}
+            </motion.button>
+          </div>
+          {isMobileNavOpen && (
+            <motion.div
+              className={`lg:hidden fixed inset-0 bg-black z-10 h-screen`}
+              initial="closed"
+              animate="open"
+              variants={navVariants}
+            >
+              <div className="container mt-20">
+                {links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className={`block text-3xl py-2 text-white hover:text-gray-200`}
+                    onClick={toggleMobileNav}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <div className="mt-20">
+                  <SocialMediaIcons />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </nav>
+      </div>
+    </div>
   );
 };
 

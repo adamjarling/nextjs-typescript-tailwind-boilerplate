@@ -1,9 +1,8 @@
+import HomePage from "./home-page";
 import type { Metadata } from "next";
 
-import HomePage from "./home-page";
-
 export const metadata: Metadata = {
-  title: "Casey Murtaugh - Artist and Educator",
+  title: "Page title goes here",
 };
 
 export default async function Page() {

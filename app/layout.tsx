@@ -1,50 +1,29 @@
 import "./globals.css";
 
+import { config, nav } from "nttb-config";
+
+import Footer from "@/components/Footer";
+import { Libre_Franklin } from "next/font/google";
 import { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import Nav from "@/components/Nav";
 import Script from "next/script";
 import { SITE_CONFIG } from "site-config";
 
-import Nav from "@/components/Nav";
+const { OPEN_GRAPH, SITE } = config;
 
-const montserrat = Montserrat({
+const libreFranklin = Libre_Franklin({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-libreFranklin",
 });
 
 export const metadata: Metadata = {
+  description: SITE.description,
+  openGraph: OPEN_GRAPH,
   title: {
-    default: SITE_CONFIG.title,
-    template: `%s | ${SITE_CONFIG.title}`,
-  },
-  description: "Default description goes here",
-  openGraph: {
-    title: SITE_CONFIG.title,
-    description: "Showcasing the ..",
-    url: "https://adamarling.com",
-    siteName: SITE_CONFIG.title,
-    images: [
-      {
-        url: `${
-          process.env.NEXT_PUBLIC_BASE_URL
-        }/api/og?cover=${encodeURIComponent("/images/IMG_0221.jpg")}`,
-      },
-    ],
-    locale: "en-US",
-    type: "website",
+    default: SITE.title,
+    template: `%s | ${SITE.title}`,
   },
 };
-
-const links = [
-  {
-    href: "/about",
-    label: "About",
-  },
-  {
-    href: "/masonry-gallery",
-    label: "Masonry Gallery",
-  },
-];
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -54,23 +33,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={montserrat.className}>
+    <html lang="en" className={libreFranklin.className}>
       <body>
-        <Nav links={links} />
-        <>
-          {children}
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA}`}
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
+        <div className="flex flex-col justify-between h-screen">
+          <Nav links={nav} />
+          <div className="">{children}</div>
+          <Footer />
+        </div>
+
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA}`}
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${process.env.NEXT_PUBLIC_GA}');
             `}
-          </Script>
-        </>
+        </Script>
       </body>
     </html>
   );

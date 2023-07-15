@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  font-size: 21px;
+  /* font-size: 21px; */
 }
 
 @layer base {
@@ -12,6 +12,11 @@ html {
   h3,
   h4,
   h5 {
+    @apply font-medium uppercase;
+  }
+
+  .banner-headline {
+    @apply font-semibold text-center text-5xl md:text-8xl lg:text-[128px] leading-none pb-3;
   }
 
   .section {
