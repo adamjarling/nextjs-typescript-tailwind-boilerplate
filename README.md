@@ -1,18 +1,23 @@
 # nextjs-typescript-tailwind-boilerplate
 
-Baseline starter project which includes:
+Baseline starter project files for a NextJS (server components) React application which uses TypeScript and TailwindCSS. Intended to be a helpful starting point.
 
-- Using Next13 `/app` directory and Server components by default
+## Includes
+
+- Using [Next13](https://nextjs.org/) `/app` directory and Server components by default
 - Typescript
-- TailwindCSS
-- ESLint (auto import sorting) / Prettier
+- [TailwindCSS](https://tailwindcss.com/)
+- ESLint via Prettier
 - Google Analytics (UA) example
-- OpenGraph dynamic image setup using Next's `OG` package
+- OpenGraph dynamic image setup using [Vercel's OG package](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
 - Masonry photo gallery w/ Lightbox support
-- Hero component
+- Parallax Hero components (Video and Image)
+- [Framer Motion](https://www.framer.com/motion/) support
 
-## To start;
+## Getting Started
 
 Clone the app and run `npm i`
 
 Update the `package.json` file to the new site info
+
+Update the config file `nttb-config.ts`
