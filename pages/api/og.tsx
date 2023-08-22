@@ -5,7 +5,7 @@ export const config = {
   runtime: "edge",
 };
 
-export default function (req: NextRequest) {
+export default function ogRequest(req: NextRequest) {
   const { searchParams, host, protocol } = new URL(req.url);
 
   const cover = `${protocol}//${host}/_next/image?url=${encodeURIComponent(

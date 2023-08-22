@@ -7,7 +7,6 @@ import { Libre_Franklin } from "next/font/google";
 import { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Script from "next/script";
-import { SITE_CONFIG } from "site-config";
 
 const { OPEN_GRAPH, SITE } = config;
 

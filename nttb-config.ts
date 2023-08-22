@@ -1,4 +1,5 @@
 const siteTitle = "Next.js TypeScript Tailwind Boilerplate";
+const ogImage = "/images/simone-secci-WNLzDp4elWs-unsplash.jpg";
 
 const config = {
   OPEN_GRAPH: {
@@ -7,7 +8,7 @@ const config = {
       {
         url: `${
           process.env.NEXT_PUBLIC_BASE_URL
-        }/api/og?cover=${encodeURIComponent("/images/IMG_0221.jpg")}`,
+        }/api/og?cover=${encodeURIComponent(ogImage)}`,
       },
     ],
     locale: "en-US",

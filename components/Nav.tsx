@@ -112,6 +112,7 @@ const Nav: React.FC<NavProps> = ({ links }) => {
               type="button"
               className={`focus:outline-none`}
               onClick={toggleMobileNav}
+              aria-label="Toggle mobile menu"
             >
               {isMobileNavOpen ? (
                 <FiX size={40} color="white" />
