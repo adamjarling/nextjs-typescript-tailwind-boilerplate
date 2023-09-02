@@ -21,7 +21,7 @@ export default function Home() {
         />
         <Banner className="">
           <BannerHeadline>New Single Out Now</BannerHeadline>
-          <p>Some subhead content here</p>
+          <p className="">Some subhead content here</p>
         </Banner>
 
         <Banner className="text-white bg-black">
