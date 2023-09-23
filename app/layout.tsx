@@ -1,6 +1,5 @@
 import "./globals.css";
 
-import { FooterSimpleCentered, SocialIcons } from "zuma-blocks";
 import { config, nav } from "nttb-config";
 
 import Footer from "@/components/Footer";
@@ -25,32 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const footerInfo = {
-  bandName: "Band Name",
-  nav: [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ],
-  socials: [
-    {
-      name: "Facebook",
-      href: "https://facebook.com",
-      icon: SocialIcons.FacebookIcon,
-    },
-    {
-      name: "Instagram",
-      href: "https://instagram.com",
-      icon: SocialIcons.InstagramIcon,
-    },
-    {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: SocialIcons.TwitterIcon,
-    },
-  ],
-};
-
 export default function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
@@ -64,12 +37,7 @@ export default function RootLayout({
         <div className="flex flex-col justify-between h-screen ">
           <Nav links={nav} />
           <div className="">{children}</div>
-          {/* <Footer /> */}
-          <FooterSimpleCentered
-            bandName={footerInfo.bandName}
-            nav={footerInfo.nav}
-            socials={footerInfo.socials}
-          />
+          <Footer />
         </div>
 
         <Script

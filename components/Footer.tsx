@@ -1,35 +1,19 @@
-import { FiFacebook, FiInstagram, FiYoutube } from "react-icons/fi";
+"use client";
 
-import Link from "next/link";
+import { footerNav, footerSocials } from "@/data/footer";
+
+import { FooterSimpleCentered } from "zuma-blocks";
 import React from "react";
-import SocialMediaIcons from "./SocialMediaIcons";
-import { socialMedia } from "nttb-config";
-
-const socialIcons = [
-  {
-    label: "Instagram",
-    Icon: FiInstagram,
-    url: socialMedia.instagram.url,
-  },
-  {
-    label: "Facebook",
-    Icon: FiFacebook,
-    url: socialMedia.facebook.url,
-  },
-  {
-    label: "YouTube",
-    Icon: FiYoutube,
-    url: socialMedia.youTube.url,
-  },
-];
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-black">
-      <div className="container flex flex-col items-center justify-center py-8 text-sm md:justify-between md:flex-row ">
-        <div className="pb-3 md:pb-0">&copy; Website name</div>
-        <SocialMediaIcons />
-      </div>
+    <footer>
+      <FooterSimpleCentered
+        bandName={`Org name here`}
+        className="bg-black border-t border-gray-800"
+        nav={footerNav}
+        socials={footerSocials}
+      />
     </footer>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "nextjs-typescript-tailwind-boilerplate",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": {
     "name": "Adam J. Arling",
     "email": "aarling@gmail.com",
@@ -13,27 +13,28 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "^20.5.8",
-    "@types/react": "^18.2.21",
+    "@types/node": "^20.6.3",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
-    "@vercel/og": "^0.5.13",
-    "eslint": "^8.48.0",
-    "eslint-config-next": "^13.4.19",
-    "framer-motion": "^10.16.2",
+    "@vercel/og": "^0.5.17",
+    "eslint": "^8.50.0",
+    "eslint-config-next": "^13.5.2",
+    "framer-motion": "^10.16.4",
     "image-size": "^1.0.2",
-    "next": "^13.4.19",
+    "next": "^13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.10.1",
+    "react-icons": "^4.11.0",
     "react-masonry-css": "^1.0.16",
-    "sharp": "^0.32.5",
+    "sharp": "^0.32.6",
     "typescript": "^5.2.2",
-    "yet-another-react-lightbox": "^3.12.1"
+    "yet-another-react-lightbox": "^3.12.2",
+    "zuma-blocks": "latest"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.16",
     "eslint-config-prettier": "^9.0.0",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.30",
     "tailwindcss": "^3.3.3"
   }
 }
