@@ -19,6 +19,7 @@ const config = {
   },
   SITE: {
     description: "Description of the site",
+    name: "My Website",
     title: siteTitle,
   },
 };

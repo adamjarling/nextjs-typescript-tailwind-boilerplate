@@ -6,6 +6,7 @@ import { motion, useScroll } from "framer-motion";
 
 import { IoIosMenu } from "react-icons/io";
 import SocialMediaIcons from "./SocialMediaIcons";
+import { config } from "@/nttb-config";
 import { usePathname } from "next/navigation";
 
 interface NavProps {
@@ -81,8 +82,8 @@ const Nav: React.FC<NavProps> = ({ links }) => {
                 isMobileNavOpen && "hidden"
               }`}
             >
-              <span className="hidden lg:block">My Website</span>
-              <span className="lg:hidden">MW</span>
+              <span className="hidden lg:block">{config.SITE.name}</span>
+              <span className="lg:hidden">O.K.</span>
             </motion.a>
           </div>
           <div className={`hidden lg:flex uppercase opacity-100 z-30`}>
