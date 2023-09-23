@@ -25,14 +25,15 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en" className={libreFranklin.className}>
+      {/* Favicon */}
+      <link rel="icon" href="/favicon.png" type="image/png" />
+
       <body>
         <div className="flex flex-col justify-between h-screen ">
           <Nav links={nav} />
