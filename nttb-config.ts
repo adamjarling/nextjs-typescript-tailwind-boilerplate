@@ -1,5 +1,6 @@
 const siteTitle = "Next.js TypeScript Tailwind Boilerplate";
 const ogImage = "/images/simone-secci-WNLzDp4elWs-unsplash.jpg";
+const url = "https://adamarling.com";
 
 const config = {
   OPEN_GRAPH: {
@@ -15,12 +16,13 @@ const config = {
     siteName: siteTitle,
     title: siteTitle,
     type: "website",
-    url: "https://adamarling.com",
+    url,
   },
   SITE: {
     description: "Description of the site",
     name: "My Website",
     title: siteTitle,
+    url,
   },
 };
 

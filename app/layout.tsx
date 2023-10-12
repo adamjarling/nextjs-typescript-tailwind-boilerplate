@@ -17,6 +17,7 @@ const libreFranklin = Libre_Franklin({
 
 export const metadata: Metadata = {
   description: SITE.description,
+  metadataBase: new URL(config.SITE.url),
   openGraph: OPEN_GRAPH,
   title: {
     default: SITE.title,
